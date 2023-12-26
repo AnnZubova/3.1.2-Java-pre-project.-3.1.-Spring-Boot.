@@ -10,7 +10,7 @@ import web.model.User;
 import java.util.List;
 
 @Service
-@Transactional
+//@Transactional
 public class UserServiceImpl implements UserService {
     @Autowired
     private final UserDao userDao = new UserDaoImpl();
@@ -24,17 +24,17 @@ public class UserServiceImpl implements UserService {
     public User getUserById(int id) {
         return userDao.getUserById(id);
     }
-
+    @Transactional
     @Override
     public void addUser(User user) {
         userDao.addUser(user);
     }
-
+    @Transactional
     @Override
     public void removeUser(int id) {
         userDao.removeUser(id);
     }
-
+    @Transactional
     @Override
     public void updateUser(int id, User updateUser) {
         userDao.updateUser(id, updateUser);

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("/people")
 public class UserController {
@@ -36,7 +38,7 @@ public class UserController {
     }
 
     @PostMapping()//"/new"
-    public String create(@ModelAttribute("users") User user, //@Valid
+    public String create(@ModelAttribute("users") @Valid User user, //@Valid
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "new";
@@ -51,7 +53,7 @@ public class UserController {
     }
 
     @PostMapping("/{id}")
-    public String update(@ModelAttribute("users") User user,
+    public String update(@ModelAttribute("users") @Valid User user,
                          BindingResult bindingResult, @RequestParam("id") int id) {
         if (bindingResult.hasErrors())
             return "edit";
