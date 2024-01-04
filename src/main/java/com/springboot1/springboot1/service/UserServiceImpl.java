@@ -1,11 +1,11 @@
-package web.service;
+package com.springboot1.springboot1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import web.dao.UserDao;
-import web.dao.UserDaoImpl;
-import web.model.User;
+import com.springboot1.springboot1.dao.UserDao;
+import com.springboot1.springboot1.dao.UserDaoImpl;
+import com.springboot1.springboot1.model.User;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(int id) {
+    public User getUserById(Integer id) {
         return userDao.getUserById(id);
     }
     @Transactional
@@ -31,12 +31,12 @@ public class UserServiceImpl implements UserService {
     }
     @Transactional
     @Override
-    public void removeUser(int id) {
+    public void removeUser(Integer id) {
         userDao.removeUser(id);
     }
     @Transactional
     @Override
-    public void updateUser(int id, User updateUser) {
+    public void updateUser(Integer id, User updateUser) {
         userDao.updateUser(id, updateUser);
     }
 }

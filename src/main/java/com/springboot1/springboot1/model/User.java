@@ -1,4 +1,4 @@
-package web.model;
+package com.springboot1.springboot1.model;
 
 import javax.persistence.*;
 
@@ -7,13 +7,13 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column
+    private Integer id;
+    @Column(name="name")
     private String name;
-    @Column
+    @Column(name="lastName")
     private String lastName;
 
-    @Column
+    @Column(name="email")
     private String email;
 
     public User() {

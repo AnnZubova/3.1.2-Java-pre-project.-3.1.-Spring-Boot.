@@ -1,7 +1,7 @@
-package web.dao;
+package com.springboot1.springboot1.dao;
 
 import org.springframework.stereotype.Repository;
-import web.model.User;
+import com.springboot1.springboot1.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUserById(int id) {
+    public User getUserById(Integer id) {
         TypedQuery<User> q = entityManager.createQuery("select u from User u where u.id = :id", User.class);
         q.setParameter("id", id);
         return q.getResultList().stream().findAny().orElse(null);
@@ -31,13 +31,13 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void updateUser(int id, User updateUser) {
+    public void updateUser(Integer id, User updateUser) {
         entityManager.merge(updateUser);
         entityManager.flush();
     }
 
     @Override
-    public void removeUser(int id) {
+    public void removeUser(Integer id) {
         User user = entityManager.find(User.class, id);
         entityManager.remove(user);
     }
